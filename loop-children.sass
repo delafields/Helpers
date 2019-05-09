@@ -1,0 +1,28 @@
+$lvl1: #FFFFFF
+$lvl2: #F44336
+$lvl3: #FFEB3B
+$lvl4: #4CAF50
+$lvl5: #2196F3
+$level-colors: $lvl1, $lvl2, $lvl3, $lvl4, $lvl5
+
+#levels // parent
+
+.level // child
+
+// Colors the nth child
+@each $color in $level-colors
+	$i: index($level-colors, $color)
+	.level:nth-of-type(#{$i})
+		background: $color
+		border-bottom: 5px solid darken($color, 10%)
+
+
+// Colors big left border & top body border depending on its "level"
+@each $color in $level-colors
+	$i: index($level-colors, $color)
+	.container.child-level-#{$i}:before
+		background: darken($color, 5%)
+		border-left: 2px solid darken($color, 20%)
+
+	.container.child-level-#{$i}:after
+		background: darken($color, 5%)
