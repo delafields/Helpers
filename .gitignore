@@ -125,3 +125,6 @@ dmypy.json
 
 # iPython checkpoints
 .ipynb_checkpoints
+
+# VS code
+.vscode
